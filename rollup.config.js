@@ -64,24 +64,24 @@ export default [
     },
   },
 
-   // Server bundle
-   {
+  // Server bundle
+  {
     input: "src/App.svelte",
     output: {
       sourcemap: false,
       format: "cjs",
       name: "app",
-      file: "public/build/app.js"
+      file: "public/build/app.js",
     },
     plugins: [
       svelte({
-        generate: "ssr"
+        generate: "ssr",
       }),
       resolve(),
       commonjs(),
-      !production && terser()
-    ]
-  }
+      !production && terser(),
+    ],
+  },
 ];
 
 function serve() {
