@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public --single"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
@@ -17,9 +17,11 @@
     "svelte-preprocess": "^3.4.0"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.2.0",
     "autoprefixer": "^9.7.4",
     "rollup-plugin-postcss": "^2.0.6",
     "sirv-cli": "^0.4.4",
+    "svelte-routing": "^1.4.2",
     "tailwindcss": "^1.2.0"
   }
 }

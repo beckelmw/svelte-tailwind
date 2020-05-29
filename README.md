@@ -4,13 +4,13 @@
 
 # svelte app
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+This is a project template for [Svelte](https://svelte.dev) apps with tailwind css and svelte router integration.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+npx degit beckelmw/svelte-tailwind your-app
+cd your-app
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
@@ -21,7 +21,7 @@ cd svelte-app
 Install the dependencies...
 
 ```bash
-cd svelte-app
+cd your-app
 npm install
 ```
 
@@ -38,7 +38,7 @@ By default, the server will only respond to requests from localhost. To allow co
 
 ## Building and running in production mode
 
-To create an optimised version of the app:
+To create an optimized version of the app:
 
 ```bash
 npm run build
@@ -55,39 +55,4 @@ If you're building a single-page app (SPA) with multiple routes, sirv needs to b
 
 ```js
 "start": "sirv public --single"
-```
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
 ```
