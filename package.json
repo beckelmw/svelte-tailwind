@@ -4,7 +4,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --single"
+    "start": "sirv public --single",
+    "generate": "npm run build && node generate.js",
+    "deploy": "serverless deploy"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.0",
@@ -15,12 +17,12 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0",
-    "svelte-preprocess": "^3.4.0"
-  },
-  "dependencies": {
+    "svelte-preprocess": "^3.4.0",
     "@fullhuman/postcss-purgecss": "^2.2.0",
     "autoprefixer": "^9.7.4",
+    "fs-extra": "^9.0.1",
     "rollup-plugin-postcss": "^2.0.6",
+    "serverless": "^1.73.1",
     "sirv-cli": "^0.4.4",
     "svelte-routing": "^1.4.2",
     "tailwindcss": "^1.2.0"
