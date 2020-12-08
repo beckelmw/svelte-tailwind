@@ -11,21 +11,21 @@ const app = require("./public/build/app.js");
     { url: "/page/3", file: "page/3/index.html" },
   ];
 
+  const data = { id: 1 };
+
   for (const i of pages) {
-    const { html, head } = app.render({ url: i.url });
+    const { html, head } = app.render({ url: i.url, data });
+
     const output = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
     ${head}
-
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/site.css" />
   </head>
-
   <body>
     ${html}
   </body>
@@ -43,7 +43,7 @@ const app = require("./public/build/app.js");
   }
 
   await copy("./public/img", "./generated/img");
-  await copy("./public/build/bundle.css", "./generated/site.css");
+  await copy("./public/build/site.css", "./generated/site.css");
   await copy("./public/favicon.png", "./generated/favicon.png");
 
   console.log("Copied assets");

@@ -3,7 +3,7 @@
 org: wbeckelman
 app: web
 component: website
-name: 8499NNationalDr
+name: svelte-tailwind
 stage: dev
 
 inputs:

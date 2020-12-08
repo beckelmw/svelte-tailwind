@@ -4,7 +4,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
-import postcss from "rollup-plugin-postcss";
 import sveltePreprocess from "svelte-preprocess";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -21,20 +20,25 @@ export default [
     plugins: [
       svelte({
         preprocess: sveltePreprocess({
-          postcss: true,
+          sourceMap: !production,
+          postcss: {
+            plugins: [
+              require("tailwindcss"),
+              require("autoprefixer"),
+              require("postcss-nesting"),
+            ],
+          },
         }),
-        // enable run-time checks when not in production
-        dev: !production,
-        // we'll extract any component CSS out into
-        // a separate file - better for performance
-        css: (css) => {
-          css.write("public/build/bundle.css");
+        emitCss: false,
+        compilerOptions: {
+          // enable run-time checks when not in production
+          dev: !production,
+          // we'll extract any component CSS out into
+          // a separate file - better for performance
+          css: (css) => {
+            css.write("public/build/site.css");
+          },
         },
-      }),
-
-      postcss({
-        plugins: [require("tailwindcss"), require("autoprefixer")],
-        extract: "public/build/site.css",
       }),
 
       // If you have external dependencies installed from
@@ -78,9 +82,31 @@ export default [
       alias({
         entries: [{ find: "src", replacement: `${__dirname}/src` }],
       }),
+
       svelte({
-        generate: "ssr",
+        preprocess: sveltePreprocess({
+          sourceMap: !production,
+          postcss: {
+            plugins: [
+              require("tailwindcss"),
+              require("autoprefixer"),
+              require("postcss-nesting"),
+            ],
+          },
+        }),
+        emitCss: false,
+        compilerOptions: {
+          // enable run-time checks when not in production
+          dev: !production,
+          // we'll extract any component CSS out into
+          // a separate file - better for performance
+          css: (css) => {
+            css.write("public/build/site.css");
+          },
+          generate: "ssr",
+        },
       }),
+
       resolve(),
       commonjs(),
       !production && terser(),
