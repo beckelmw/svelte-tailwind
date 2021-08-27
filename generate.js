@@ -24,7 +24,7 @@ const app = require("./public/build/app.js");
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     ${head}
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="stylesheet" href="/site.css" />
+    <link rel="stylesheet" href="/site.min.css" />
   </head>
   <body>
     ${html}
@@ -43,7 +43,7 @@ const app = require("./public/build/app.js");
   }
 
   await copy("./public/img", "./generated/img");
-  await copy("./public/build/site.css", "./generated/site.css");
+  await copy("./public/build/site.min.css", "./generated/site.min.css");
   await copy("./public/favicon.png", "./generated/favicon.png");
 
   console.log("Copied assets");

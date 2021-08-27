@@ -15,16 +15,17 @@
     "autoprefixer": "^10.0.4",
     "fs-extra": "^9.0.1",
     "postcss": "^8.2.10",
-    "postcss-nesting": "^7.0.1",
+    "postcss-nesting": "^8.0.1",
     "rollup": "^1.20.0",
+    "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "serverless": "^1.73.1",
     "sirv-cli": "^0.4.4",
     "svelte": "^3.31.0",
     "svelte-preprocess": "^4.6.1",
     "svelte-routing": "^1.4.2",
     "tailwindcss": "^2.0.1"
-  }
+  },
+  "dependencies": {}
 }
