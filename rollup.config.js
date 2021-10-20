@@ -80,6 +80,7 @@ export default [
       format: "cjs",
       name: "app",
       file: "public/build/app.js",
+      exports: "auto",
     },
     plugins: [
       alias({

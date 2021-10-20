@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import Page from "./routes/Page.svelte";
   import Header from "./components/Header.svelte";
