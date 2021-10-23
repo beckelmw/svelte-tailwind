@@ -5,16 +5,6 @@
   let isOpen = false;
 </script>
 
-<style>
-  .header-link {
-    @apply block px-2 py-1 text-white font-semibold rounded;
-  }
-
-  .header-link:hover {
-    @apply bg-green-800;
-  }
-</style>
-
 <header class="bg-green-500 sm:flex sm:justify-between px-4 py-2" use:links>
   <div class="flex items-center justify-between text-gray-500">
     <a class="font-semibold text-xl text-white" href="/">Tailwind</a>
@@ -26,3 +16,13 @@
     <a href="/page/3" class="header-link mt-1 sm:mt-0 sm:ml-2">Link</a>
   </div>
 </header>
+
+<style lang="postcss">
+  .header-link {
+    @apply block px-2 py-1 text-white font-semibold rounded;
+  }
+
+  .header-link:hover {
+    @apply bg-green-800;
+  }
+</style>

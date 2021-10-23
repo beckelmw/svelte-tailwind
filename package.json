@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --single",
+    "start": "serve public --single",
     "generate": "npm run build && node generate.js",
     "deploy": "serverless deploy"
   },
@@ -12,6 +12,8 @@
     "@rollup/plugin-alias": "^3.1.8",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.7",
     "fs-extra": "^10.0.0",
     "postcss": "^8.3.10",
@@ -21,14 +23,10 @@
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sirv-cli": "^1.0.14",
+    "serve": "^12.0.1",
     "svelte": "^3.44.0",
     "svelte-preprocess": "^4.9.8",
     "svelte-routing": "^1.6.0",
     "tailwindcss": "^2.2.17"
-  },
-  "dependencies": {
-    "@tailwindcss/forms": "^0.3.4",
-    "@tailwindcss/typography": "^0.4.1"
   }
 }
