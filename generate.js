@@ -27,7 +27,8 @@ const app = require("./public/build/app.js");
     <link rel="stylesheet" href="/site.min.css" />
   </head>
   <body>
-    ${html}
+    <div id="site">${html}</div>
+    <script src="/site.min.js"></script>
   </body>
 </html>
 `;
@@ -44,6 +45,7 @@ const app = require("./public/build/app.js");
 
   await copy("./public/img", "./generated/img");
   await copy("./public/build/site.min.css", "./generated/site.min.css");
+  await copy("./public/build/bundle.js", "./generated/site.min.js");
   await copy("./public/favicon.png", "./generated/favicon.png");
 
   console.log("Copied assets");

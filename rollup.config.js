@@ -113,6 +113,46 @@ export default [
       !production && terser(),
     ],
   },
+
+  {
+    input: "src/App.svelte",
+    output: {
+      sourcemap: false,
+      format: "esm",
+      name: "app",
+      file: "public/build/app.mjs"
+    },
+    plugins: [
+      alias({
+        entries: [{ find: "src", replacement: `${__dirname}/src` }],
+      }),
+
+      svelte({
+        preprocess: sveltePreprocess({
+          sourceMap: !production,
+          postcss: {
+            plugins: [
+              require("tailwindcss"),
+              require("autoprefixer"),
+              require("postcss-nesting"),
+            ],
+          },
+        }),
+        emitCss: true,
+        compilerOptions: {
+          // enable run-time checks when not in production
+          dev: !production,
+          generate: "ssr",
+        },
+      }),
+
+      css({ output: false }),
+
+      resolve(),
+      commonjs(),
+      !production && terser(),
+    ],
+  },
 ];
 
 function serve() {
