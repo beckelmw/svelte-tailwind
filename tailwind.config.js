@@ -1,11 +1,6 @@
 const production = !process.env.ROLLUP_WATCH; // or some other env var like NODE_ENV
 module.exports = {
-  future: {
-    // for tailwind 2.0 compat
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
   purge: {
     content: [
       "./src/**/*.svelte",
