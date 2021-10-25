@@ -61,7 +61,11 @@ export default [
 
       // Watch the `public` directory and refresh the
       // browser on changes when not in production
-      !production && livereload("public"),
+      !production &&
+        livereload({
+          delay: 200,
+          watch: "public",
+        }),
 
       // If we're building for production (npm run build
       // instead of npm run dev), minify
@@ -120,7 +124,7 @@ export default [
       sourcemap: false,
       format: "esm",
       name: "app",
-      file: "public/build/app.mjs"
+      file: "public/build/app.mjs",
     },
     plugins: [
       alias({
